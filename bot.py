@@ -2,7 +2,7 @@ import os
 import time
 from playwright.sync_api import sync_playwright
 
-URL_PAGE = "https://www.wiki-masters.com/page-du-bouton"
+URL_PAGE = "https://www.wiki-masters.com/login"
 BOUTON_A_CLIQUER = "text=Nom du bouton"
 
 NB_CLICS = 5
