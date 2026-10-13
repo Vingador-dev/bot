@@ -16,7 +16,13 @@ jobs:
           python-version: "3.12"
       - run: pip install playwright
       - run: playwright install --with-deps chromium
-      - run: python bot.py
+      - run: echo "$SESSION" > session.json
         env:
-          IDENTIFIANT: ${{ secrets.IDENTIFIANT }}
-          MOT_DE_PASSE: ${{ secrets.MOT_DE_PASSE }}
+          SESSION: ${{ secrets.SESSION }}
+      - run: python bot.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: captures
+          path: captures/
+          retention-days: 3
